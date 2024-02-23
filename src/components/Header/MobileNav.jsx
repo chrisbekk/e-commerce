@@ -10,9 +10,9 @@ export const MobileNav = () => {
   };
   return (
     <div>
-      <FaBars onClick={handleClick} />
+      <FaBars onClick={handleClick} className='text-xl hover:cursor-pointer' />
       {showMenu && (
-        <div className='absolute bg-neutral-900 h-screen w-full left-0 top-20 flex flex-col gap-3 items-center justify-center'>
+        <div className='absolute left-0 top-20 flex h-screen w-full flex-col items-center justify-center gap-3 bg-neutral-900'>
           <Link to='/' onClick={handleClick}>
             Home
           </Link>

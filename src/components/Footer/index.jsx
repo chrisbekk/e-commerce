@@ -16,7 +16,7 @@ export const Footer = () => {
             <Link to='/contact'>Contact Us</Link>
             <Link to='/shopping-cart'>Shopping Cart</Link>
           </div>
-          <div className='mt-4 flex lg:justify-end'>
+          <div className='mt-4 flex sm:justify-center lg:justify-end'>
             <p className='pr-2 text-xs font-thin'>2024 Christian Bekkelund</p>
           </div>
         </div>

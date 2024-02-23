@@ -4,12 +4,12 @@ import { NavigationMenu } from './NavigationMenu';
 import { Link } from 'react-router-dom';
 export const Header = () => {
   return (
-    <div className='bg-neutral-900 text-neutral-50 h-20 w-full fixed top-0'>
+    <div className='fixed top-0 w-full bg-neutral-900 text-neutral-50'>
       <Wrapper>
-        <div className='h-full flex items-center justify-between px-2 relative'>
-          <h1 className='font-thin text-2xl'>
+        <div className='relative flex h-full items-center justify-between px-2'>
+          <h1 className='text-2xl font-thin'>
             <Link to='/'>
-              Digital<span className='font-semibold'>Market</span>
+              Market<span className='font-semibold'>Place</span>
             </Link>
           </h1>
           <NavigationMenu />

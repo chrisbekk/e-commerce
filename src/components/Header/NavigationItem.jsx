@@ -4,9 +4,11 @@ export const NavigationItem = ({ route, children }) => {
   return (
     <NavLink
       to={route}
-      className={({ isActive }) => (isActive ? 'text-lime-300' : '')}
+      className={({ isActive }) => (isActive ? 'underline' : '')}
     >
-      <p className='text-sm'>{children}</p>
+      <span className='text-sm hover:text-white hover:transition-all'>
+        {children}
+      </span>
     </NavLink>
   );
 };

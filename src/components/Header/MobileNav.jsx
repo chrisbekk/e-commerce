@@ -53,7 +53,7 @@ export const MobileNav = () => {
   };
 
   return (
-    <div>
+    <div className='p-0'>
       <FaBars onClick={handleClick} className='text-xl hover:cursor-pointer' />
       <AnimatePresence>
         {showMenu && (

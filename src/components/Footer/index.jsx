@@ -5,7 +5,7 @@ export const Footer = () => {
   return (
     <div className='mt-auto bg-neutral-900 text-neutral-50'>
       <Wrapper>
-        <div className='h-48 py-2'>
+        <div className='h-48 py-2 pl-2'>
           <h1 className='text-2xl font-thin'>
             <Link to='/'>
               Market<span className='font-semibold'>Place</span>

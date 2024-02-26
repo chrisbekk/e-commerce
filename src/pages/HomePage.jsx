@@ -4,7 +4,7 @@ import { Products } from '../components/Products';
 
 export const HomePage = () => {
   return (
-    <div className='mt-20'>
+    <div className='mt-20 bg-neutral-50'>
       <Wrapper>
         <Products />
       </Wrapper>

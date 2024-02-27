@@ -7,7 +7,7 @@ export const ProductCardDetails = ({ title, tags, price, discountedPrice }) => {
   if (discountedPrice < price) {
     priceContainer = (
       <div className='flex items-center gap-3'>
-        <h2 className='w-fit rounded-sm bg-neutral-900 p-1 text-sm tracking-wide text-neutral-50 drop-shadow-md'>
+        <h2 className='w-fit rounded-sm bg-neutral-900 p-1 text-xs tracking-wide text-neutral-50 drop-shadow-md sm:text-sm'>
           {discountedPrice}
         </h2>
         <h2 className='text-xs tracking-wide text-red-400 line-through opacity-60'>
@@ -25,7 +25,9 @@ export const ProductCardDetails = ({ title, tags, price, discountedPrice }) => {
   return (
     <div className='font-montserrat flex h-full w-full flex-col justify-evenly'>
       <div className='mt-6'>
-        <h1 className='font-semibold tracking-wide'>{formatedTitle}</h1>
+        <h1 className='mb-2 max-w-40 text-wrap text-sm font-semibold tracking-wide sm:text-lg md:max-w-full'>
+          {formatedTitle}
+        </h1>
         {priceContainer}
       </div>
 

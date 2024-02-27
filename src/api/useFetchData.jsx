@@ -27,5 +27,5 @@ export default function useFetchData(url) {
     fetchData();
   }, [url]);
 
-  return { products, error, loading };
+  return { products, setProducts, error, loading };
 }

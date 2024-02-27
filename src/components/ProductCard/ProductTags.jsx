@@ -6,7 +6,7 @@ export const ProductTags = ({ tags }) => {
       {tags.map((tag, index) => (
         <p
           key={index}
-          className='rounded-lg bg-neutral-800 p-2 text-xs text-neutral-50'
+          className='min-w-[35px] rounded-lg bg-neutral-800 p-1 text-center text-[0.6rem] text-neutral-50 sm:text-xs md:p-2'
         >
           {tag}
         </p>

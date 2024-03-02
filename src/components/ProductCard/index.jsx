@@ -7,7 +7,7 @@ export const ProductCard = ({ product }) => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate(`/products/productId=${id}`);
+    navigate(`/products/${id}`);
   };
   return (
     <div

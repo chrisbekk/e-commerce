@@ -1,10 +1,6 @@
 export const initialState = {
   total: 0,
-  items: [
-    { id: 1, title: 'item1', price: 100 },
-    { id: 2, title: 'item2', price: 200 },
-    { id: 3, title: 'item3', price: 400 },
-  ],
+  items: [],
 };
 
 export default function shopCartReducer(state, action) {
@@ -13,12 +9,16 @@ export default function shopCartReducer(state, action) {
   switch (type) {
     case 'ADD_TO_CART':
       console.log('ADD_TO_CART', payload);
+      const updatedCart = [...state.items];
+      updatedCart.push(payload);
+
       return {
         ...state,
-        items: payload.items,
+        items: updatedCart,
       };
     case 'REMOVE_FROM_CART':
       console.log('REMOVE_FROM_CART', payload);
+      const updatedCart = [...state.items];
       return {
         ...state,
         items: payload.items,

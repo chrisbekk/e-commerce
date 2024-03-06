@@ -16,7 +16,7 @@ export default function useFetchData(url) {
         const { data } = await response.json();
 
         setProducts(data);
-        console.log(data);
+
         setError(null);
       } catch (error) {
         setError(`Could not fetch data: ${error}`);

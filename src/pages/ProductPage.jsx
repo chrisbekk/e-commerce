@@ -10,9 +10,7 @@ export const ProductPage = () => {
   const { products, error, loading } = useFetchData(
     `https://v2.api.noroff.dev/online-shop/${productId}`,
   );
-  useEffect(() => {
-    console.log(products);
-  }, [products]);
+
   return (
     <div className='mt-20 bg-neutral-50'>
       <Wrapper>

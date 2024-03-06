@@ -6,8 +6,22 @@ const ShopCartContext = createContext(initialState);
 export const ShopCartProvider = ({ children }) => {
   const [state, dispatch] = useReducer(shopCartReducer, initialState);
 
+  const addToCart = (product) => {
+    console.log(product);
+    dispatch({
+      type: 'ADD_TO_CART',
+      payload: product,
+    });
+  };
+
+  const shoppingCart = {
+    total: state.total,
+    items: state.items,
+    addToCart,
+  };
+
   return (
-    <ShopCartContext.Provider value={initialState}>
+    <ShopCartContext.Provider value={shoppingCart}>
       {children}
     </ShopCartContext.Provider>
   );

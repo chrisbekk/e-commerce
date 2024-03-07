@@ -8,27 +8,35 @@ export default function shopCartReducer(state, action) {
 
   switch (type) {
     case 'ADD_TO_CART':
-      console.log('ADD_TO_CART', payload);
-      const updatedCart = [...state.items];
-      updatedCart.push(payload);
-
+      const updatedItems = [...state.items];
+      let newTotal = state.total;
+      console.log(newTotal);
+      const itemIndex = updatedItems.findIndex(
+        (item) => item.id === payload.id,
+      );
+      if (itemIndex >= 0) {
+        updatedItems[itemIndex].quantity += 1;
+      } else {
+        updatedItems.push({ ...payload, quantity: 1 });
+      }
+      console.log(state);
+      newTotal = updatedItems.reduce(
+        (acc, item) => (acc += item.price * item.quantity),
+        newTotal,
+      );
       return {
         ...state,
-        items: updatedCart,
+        total: newTotal,
+        items: updatedItems,
       };
     case 'REMOVE_FROM_CART':
       console.log('REMOVE_FROM_CART', payload);
-      const updatedCart = [...state.items];
+
       return {
         ...state,
         items: payload.items,
       };
-    case 'UPDATE_TOTAL':
-      console.log('UPDATE_TOTAL', payload);
-      return {
-        ...state,
-        total: payload.total,
-      };
+
     default:
       throw new Error(`No case for type ${type}`);
   }

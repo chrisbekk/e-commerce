@@ -5,9 +5,7 @@ export const ShoppingcartIcon = () => {
   const { items } = useShopCartContext();
   const calcCartLength = items.length > 0;
   //TODO: Fix cart items size: cartItems will clip when number of items reach a big enough number
-  useEffect(() => {
-    console.log('items:', items);
-  }, [items]);
+
   return (
     <div className='relative'>
       <AiOutlineShopping className='text-3xl' />

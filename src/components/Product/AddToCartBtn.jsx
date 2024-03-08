@@ -3,7 +3,6 @@ import { useShopCartContext } from '../../context/ShopCartContext';
 export const AddToCartBtn = ({ product }) => {
   const { addToCart } = useShopCartContext();
   const handleClick = () => {
-    console.log('clicked');
     addToCart(product);
   };
   return (

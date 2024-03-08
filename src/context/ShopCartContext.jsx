@@ -14,18 +14,10 @@ export const ShopCartProvider = ({ children }) => {
     });
   };
 
-  const calcTotal = () => {
-    dispatch({
-      type: 'UPDATE_TOTAL',
-      payload: state.items,
-    });
-  };
-
   const shoppingCart = {
     total: state.total,
     items: state.items,
     addToCart,
-    calcTotal,
   };
 
   return (

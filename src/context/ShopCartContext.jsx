@@ -14,10 +14,28 @@ export const ShopCartProvider = ({ children }) => {
     });
   };
 
+  const removeQuantity = (product) => {
+    console.log(product);
+    dispatch({
+      type: 'REMOVE_QUANTITY',
+      payload: product,
+    });
+  };
+
+  const removeFromCart = (product) => {
+    console.log(product);
+    dispatch({
+      type: 'DELETE_FROM_CART',
+      payload: product,
+    });
+  };
+
   const shoppingCart = {
     total: state.total,
     items: state.items,
     addToCart,
+    removeQuantity,
+    removeFromCart,
   };
 
   return (

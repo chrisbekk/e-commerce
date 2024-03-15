@@ -8,9 +8,9 @@ export const ShoppingCartItem = ({ item }) => {
   return (
     <div className='flex h-32 items-center justify-evenly border-b border-neutral-950 py-4 font-montserrat'>
       <ItemDetails image={image} title={title} />
-      <ItemQuantity quantity={quantity} />
+      <ItemQuantity quantity={quantity} item={item} />
       <ItemPrice price={price} />
-      <RemoveItem />
+      <RemoveItem item={item} />
     </div>
   );
 };

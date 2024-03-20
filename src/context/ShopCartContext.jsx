@@ -30,12 +30,19 @@ export const ShopCartProvider = ({ children }) => {
     });
   };
 
+  const clearCart = () => {
+    dispatch({
+      type: 'CLEAR_CART',
+    });
+  };
+
   const shoppingCart = {
     total: state.total,
     items: state.items,
     addToCart,
     removeQuantity,
     removeFromCart,
+    clearCart,
   };
 
   return (

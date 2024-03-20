@@ -41,6 +41,9 @@ export default function shopCartReducer(state, action) {
       newTotal = calculateTotal(updatedCart);
       return { ...state, total: newTotal, items: updatedCart };
 
+    case 'CLEAR_CART':
+      console.log(type);
+      return initialState;
     default:
       throw new Error(`No case for type ${type}`);
   }

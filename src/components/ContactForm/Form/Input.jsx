@@ -1,14 +1,22 @@
 import React from 'react';
 import { useState } from 'react';
-export const Input = ({ label, id, type, placeholder, minLength = 3 }) => {
-  const [value, setValue] = useState('');
+export const Input = ({
+  label,
+  id,
+  type,
+  placeholder,
+  minLength = 3,
+  setInputValidation,
+}) => {
   const [isValid, setIsValid] = useState(true);
   const handleChanges = (e) => {
-    setValue(e.target.value);
-    if (e.target.value.length >= minLength || e.target.value === '') {
+    const { value } = e.target;
+    if (value.length >= minLength || value === '') {
       setIsValid(true);
+      setInputValidation((prev) => ({ ...prev, [id]: true }));
     } else {
       setIsValid(false);
+      setInputValidation((prev) => ({ ...prev, [id]: false }));
     }
   };
 
@@ -24,7 +32,6 @@ export const Input = ({ label, id, type, placeholder, minLength = 3 }) => {
         type={type}
         placeholder={placeholder}
         onChange={(e) => handleChanges(e)}
-        value={value}
       />
     </div>
   );

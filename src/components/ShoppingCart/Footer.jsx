@@ -4,12 +4,13 @@ import { useNavigate } from 'react-router-dom';
 import { useShopCartContext } from '../../context/ShopCartContext';
 export const Footer = ({ total, setShowModal }) => {
   const navigate = useNavigate();
+  const { clearCart } = useShopCartContext();
   const roundedTotal = roundNumber(total);
   const currency = 'USD';
   const handleCheckout = () => {
+    clearCart();
     navigate('/checkout');
   };
-  const { clearCart } = useShopCartContext();
   const handleClearCart = () => {
     setShowModal(true);
   };

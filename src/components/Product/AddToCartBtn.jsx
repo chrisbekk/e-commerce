@@ -1,8 +1,9 @@
 import React from 'react';
-
+import { useShopCartContext } from '../../context/ShopCartContext';
 export const AddToCartBtn = ({ product }) => {
+  const { addToCart } = useShopCartContext();
   const handleClick = () => {
-    console.log('Product added to cart:', product.title);
+    addToCart(product);
   };
   return (
     <button

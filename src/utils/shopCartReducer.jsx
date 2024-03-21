@@ -1,34 +1,49 @@
+import calculateTotal from './calculateTotal';
+
 export const initialState = {
   total: 0,
-  items: [
-    { id: 1, title: 'item1', price: 100 },
-    { id: 2, title: 'item2', price: 200 },
-    { id: 3, title: 'item3', price: 400 },
-  ],
+  items: [],
 };
 
 export default function shopCartReducer(state, action) {
   const { type, payload } = action;
-
+  let updatedCart;
+  let newTotal;
   switch (type) {
     case 'ADD_TO_CART':
-      console.log('ADD_TO_CART', payload);
-      return {
-        ...state,
-        items: payload.items,
-      };
-    case 'REMOVE_FROM_CART':
-      console.log('REMOVE_FROM_CART', payload);
-      return {
-        ...state,
-        items: payload.items,
-      };
-    case 'UPDATE_TOTAL':
-      console.log('UPDATE_TOTAL', payload);
-      return {
-        ...state,
-        total: payload.total,
-      };
+      updatedCart = state.items.map((item) =>
+        item.id === payload.id
+          ? { ...item, quantity: item.quantity + 1 }
+          : item,
+      );
+      const newItem = state.items.find((item) => item.id === payload.id);
+      if (!newItem) {
+        updatedCart.push({ ...payload, quantity: 1 });
+      }
+      newTotal = calculateTotal(updatedCart);
+      return { ...state, total: newTotal, items: updatedCart };
+
+    case 'REMOVE_QUANTITY':
+      console.log(type, payload);
+      updatedCart = state.items
+        .map((item) =>
+          item.id === payload.id
+            ? { ...item, quantity: item.quantity - 1 }
+            : item,
+        )
+        .filter((item) => item.quantity > 0);
+      newTotal = calculateTotal(updatedCart);
+      return { ...state, total: newTotal, items: updatedCart };
+
+    case 'DELETE_FROM_CART':
+      console.log(type, payload);
+      updatedCart = state.items.filter((item) => item.id !== payload.id);
+      newTotal = calculateTotal(updatedCart);
+      return { ...state, total: newTotal, items: updatedCart };
+
+    case 'CLEAR_CART':
+      console.log(type);
+      return initialState;
     default:
       throw new Error(`No case for type ${type}`);
   }

@@ -3,14 +3,9 @@ import { useState } from 'react';
 import { Input } from './Input';
 import { TextArea } from './TextArea';
 import { EmailInput } from './EmailInput';
+import { useFormContext } from '../../../context/FormContext';
 export const Form = () => {
-  const [inputValidation, setInputValidation] = useState({
-    name: false,
-    subject: false,
-    email: false,
-    message: false,
-  });
-  const [validForm, setValidForm] = useState(true);
+  const { inputValidation, setValidForm } = useFormContext();
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Form Submitted');
@@ -26,13 +21,6 @@ export const Form = () => {
     }
   };
 
-  if (validForm) {
-    return (
-      <div className='mt-4 w-full p-4 md:mt-0'>
-        <h1>Message Sent</h1>
-      </div>
-    );
-  }
   return (
     <div className='mt-4 w-full p-4 md:mt-0'>
       <form onSubmit={(e) => handleSubmit(e)}>
@@ -41,21 +29,18 @@ export const Form = () => {
           id={'name'}
           type={'text'}
           placeholder={'Enter your full name'}
-          setInputValidation={setInputValidation}
         />
         <Input
           label={'Subject'}
           id={'subject'}
           type={'text'}
           placeholder={'Enter Subject'}
-          setInputValidation={setInputValidation}
         />
-        <EmailInput setInputValidation={setInputValidation} />
+        <EmailInput />
         <TextArea
           label={'Message'}
           id={'message'}
           placeholder={'Enter your message'}
-          setInputValidation={setInputValidation}
         />
         <button
           type='submit'

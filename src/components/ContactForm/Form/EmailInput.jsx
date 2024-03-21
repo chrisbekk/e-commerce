@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import validateEmail from '../../../utils/validateEmail';
-export const EmailInput = ({ setInputValidation }) => {
+import { useFormContext } from '../../../context/FormContext';
+export const EmailInput = () => {
   const [validEmail, setValidEmail] = useState(true);
+  const { setInputValidation } = useFormContext();
   const handleChanges = (e) => {
     const { value } = e.target;
     if (validateEmail(value) || value === '') {

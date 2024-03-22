@@ -1,10 +1,16 @@
 import React from 'react';
 import { wordsToUpperCase } from '../../utils/wordsToUpperCase';
+import { useNavigate } from 'react-router-dom';
 export const CarouselItem = ({ item, currentIndex }) => {
-  const { id, title, discountedPrice, category, description, image } = item;
+  const { id, title, discountedPrice, description, image } = item;
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate(`/products/${id}`);
+  };
   return (
     <div
-      className='relative h-full w-full flex-none transition-all duration-300 ease-in-out'
+      onClick={handleClick}
+      className='relative h-full w-full flex-none transition-all duration-300 ease-in-out hover:cursor-pointer'
       style={{ translate: `${-100 * currentIndex}%` }}
     >
       <img src={image.url} className='h-full w-full object-cover' />

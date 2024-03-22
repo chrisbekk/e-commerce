@@ -1,8 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { wordsToUpperCase } from '../../utils/wordsToUpperCase';
+import { useNavigate } from 'react-router-dom';
 export const CarouselCard = ({ item, currentIndex, index, duration }) => {
   const [progress, setProgress] = useState(0);
-  const { title, image } = item;
+  const { title, image, id } = item;
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate(`/products/${id}`);
+  };
 
   useEffect(() => {
     let startTime = Date.now();
@@ -20,7 +25,10 @@ export const CarouselCard = ({ item, currentIndex, index, duration }) => {
   }, [currentIndex, index, duration]);
 
   return (
-    <div className='relative flex h-full w-full items-center gap-1 overflow-hidden rounded-md bg-neutral-700 bg-opacity-90 pl-2'>
+    <div
+      onClick={handleClick}
+      className='relative flex h-full w-full items-center gap-1 overflow-hidden rounded-md bg-neutral-700 bg-opacity-90 pl-2 hover:cursor-pointer'
+    >
       {currentIndex === index && (
         <div
           className='absolute inset-0 h-full bg-neutral-950'

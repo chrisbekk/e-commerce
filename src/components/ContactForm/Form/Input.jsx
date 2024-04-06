@@ -1,7 +1,14 @@
 import React from 'react';
 import { useState } from 'react';
 import { useFormContext } from '../../../context/FormContext';
-export const Input = ({ label, id, type, placeholder, minLength = 3 }) => {
+export const Input = ({
+  label,
+  id,
+  type,
+  placeholder,
+  minLength = 3,
+  setFormValues,
+}) => {
   const [isValid, setIsValid] = useState(true);
   const { setInputValidation } = useFormContext();
   const handleChanges = (e) => {
@@ -9,6 +16,7 @@ export const Input = ({ label, id, type, placeholder, minLength = 3 }) => {
     if (value.length >= minLength || value === '') {
       setIsValid(true);
       setInputValidation((prev) => ({ ...prev, [id]: true }));
+      setFormValues((prevFormValues) => ({ ...prevFormValues, [id]: value }));
     } else {
       setIsValid(false);
       setInputValidation((prev) => ({ ...prev, [id]: false }));

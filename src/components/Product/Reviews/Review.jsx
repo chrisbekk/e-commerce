@@ -23,7 +23,7 @@ export const Review = ({ review }) => {
     productRating = <p className='italic'>No rating available</p>;
   }
   return (
-    <div className=' mb-8 bg-neutral-200 px-4 py-10 lg:flex lg:justify-around'>
+    <div className=' mb-8 gap-10 bg-neutral-200 px-4 py-10 lg:flex'>
       <Avatar username={username} />
       <div>
         <p className='mb-1 text-2xl font-bold'>{username}</p>

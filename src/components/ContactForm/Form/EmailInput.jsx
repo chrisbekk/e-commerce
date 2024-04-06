@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import validateEmail from '../../../utils/validateEmail';
 import { useFormContext } from '../../../context/FormContext';
-export const EmailInput = () => {
+export const EmailInput = ({ setFormValues }) => {
   const [validEmail, setValidEmail] = useState(true);
   const { setInputValidation } = useFormContext();
   const handleChanges = (e) => {
@@ -9,6 +9,7 @@ export const EmailInput = () => {
     if (validateEmail(value) || value === '') {
       setValidEmail(true);
       setInputValidation((prev) => ({ ...prev, email: true }));
+      setFormValues((prevFormValues) => ({ ...prevFormValues, email: value }));
     } else {
       setValidEmail(false);
       setInputValidation((prev) => ({ ...prev, email: false }));

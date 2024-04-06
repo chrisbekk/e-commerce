@@ -1,22 +1,26 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { Input } from './Input';
 import { TextArea } from './TextArea';
 import { EmailInput } from './EmailInput';
 import { useFormContext } from '../../../context/FormContext';
 export const Form = () => {
   const { inputValidation, setValidForm } = useFormContext();
+  const [formValues, setFormValues] = useState({
+    name: '',
+    subject: '',
+    email: '',
+    message: '',
+  });
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Form Submitted');
     for (const key in inputValidation) {
       if (!inputValidation[key]) {
-        console.log('Form not submitted');
         setValidForm(false);
         return;
       } else {
-        console.log('Form submitted');
         setValidForm(true);
+        console.log(formValues);
       }
     }
   };
@@ -29,18 +33,21 @@ export const Form = () => {
           id={'name'}
           type={'text'}
           placeholder={'Enter your full name'}
+          setFormValues={setFormValues}
         />
         <Input
           label={'Subject'}
           id={'subject'}
           type={'text'}
           placeholder={'Enter Subject'}
+          setFormValues={setFormValues}
         />
-        <EmailInput />
+        <EmailInput setFormValues={setFormValues} />
         <TextArea
           label={'Message'}
           id={'message'}
           placeholder={'Enter your message'}
+          setFormValues={setFormValues}
         />
         <button
           type='submit'

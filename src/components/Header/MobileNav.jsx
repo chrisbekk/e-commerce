@@ -67,7 +67,7 @@ export const MobileNav = () => {
             <div className='flex h-full flex-col'>
               <div className='flex justify-between'>
                 <Link className='text-lg' onClick={handleClick}>
-                  MarketPlace
+                  DigitalMarket
                 </Link>
                 <p className='text-md cursor-pointer' onClick={handleClick}>
                   Close

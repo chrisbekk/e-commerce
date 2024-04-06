@@ -15,7 +15,7 @@ export const SearchBar = ({ searchTerm, setSearchTerm }) => {
           value={searchTerm}
           type='text'
           id='search'
-          className='w-full border-b-[1px] border-neutral-900 pl-5 focus:outline-none md:w-[400px]'
+          className='w-full border-b-[1px] border-neutral-900 bg-neutral-50 pl-5 focus:outline-none md:w-[400px]'
           onChange={handleChange}
         />
       </div>

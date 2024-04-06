@@ -9,7 +9,7 @@ export const Header = () => {
         <div className='relative flex h-full items-center justify-between px-2'>
           <h1 className='text-2xl font-thin'>
             <Link to='/'>
-              Market<span className='font-semibold'>Place</span>
+              Digital<span className='font-semibold'>Market</span>
             </Link>
           </h1>
           <NavigationMenu />

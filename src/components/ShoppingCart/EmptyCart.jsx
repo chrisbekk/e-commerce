@@ -12,7 +12,7 @@ export const EmptyCart = () => {
         <div className='mb-5 flex size-20 items-center justify-center rounded-full bg-neutral-200 text-7xl'>
           <AiOutlineShopping />
         </div>
-        <h1>You're Shoppint Cart is empty</h1>
+        <h1>You're Shopping Cart is empty</h1>
 
         <button
           onClick={handleClick}

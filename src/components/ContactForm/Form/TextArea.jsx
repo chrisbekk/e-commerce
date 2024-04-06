@@ -1,7 +1,13 @@
 import React from 'react';
 import { useState } from 'react';
 import { useFormContext } from '../../../context/FormContext';
-export const TextArea = ({ label, id, placeholder, minLength = 3 }) => {
+export const TextArea = ({
+  label,
+  id,
+  placeholder,
+  minLength = 3,
+  setFormValues,
+}) => {
   const [validText, setValidText] = useState(true);
   const { setInputValidation } = useFormContext();
   const handleChanges = (e) => {
@@ -9,6 +15,7 @@ export const TextArea = ({ label, id, placeholder, minLength = 3 }) => {
     if (value.length >= minLength || value === '') {
       setValidText(true);
       setInputValidation((prev) => ({ ...prev, message: true }));
+      setFormValues((prevFormValues) => ({ ...prevFormValues, [id]: value }));
     } else {
       setValidText(false);
       setInputValidation((prev) => ({ ...prev, message: false }));

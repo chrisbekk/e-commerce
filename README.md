@@ -1,8 +1,45 @@
-# React + Vite
+# Digital Market
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![image](https://github.com/chrisbekk/media/blob/main/market.png)
 
-Currently, two official plugins are available:
+This website was a school submission in an introduction to Javascript frameworks at Noroff. 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Description
+
+This project was a course assignment at school. The goal was to create a fully functioning e-commerce store using React. The application allows users to view, search and add products to their shopping cart. The e-commerce store connects to the Noroff API to fetch product data, which is then displayed as individual product cards. The application uses React Router for navigation between pages, and employs dynamic routing for the individual product pages.
+
+- React Context API for shopping cart functionality
+- React Router DOM for routing between pages and dynamically routing to individual pages
+
+## Built With
+
+You can list a the tech stack that you've used over here
+
+- React JS
+- React Router DOM
+- TailwindCSS
+- Vite
+
+## Getting Started
+
+### Installing
+
+1. Clone the repo:
+
+```bash
+git clone git@github.com:NoroffFEU/portfolio-1-example.git
+```
+
+2. Install the dependencies:
+
+```
+npm install
+```
+
+### Running
+
+To run the app, run the following commands:
+
+```bash
+npm run dev
+```

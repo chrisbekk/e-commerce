@@ -25,7 +25,7 @@ This project was a course assignment at school. The goal was to create a fully f
 1. Clone the repo:
 
 ```bash
-git clone git@github.com:NoroffFEU/portfolio-1-example.git
+git clone https://github.com/chrisbekk/e-commerce
 ```
 
 2. Install the dependencies:

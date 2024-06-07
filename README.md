@@ -13,8 +13,6 @@ This project was a course assignment at school. The goal was to create a fully f
 
 ## Built With
 
-You can list a the tech stack that you've used over here
-
 - React JS
 - React Router DOM
 - TailwindCSS

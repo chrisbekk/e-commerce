@@ -4,6 +4,9 @@
 
 This website was a school submission in an introduction to Javascript frameworks at Noroff. 
 
+#### Deployed Link
+https://beautiful-crepe-6dec79.netlify.app
+
 ## Description
 
 This project was a course assignment at school. The goal was to create a fully functioning e-commerce store using React. The application allows users to view, search and add products to their shopping cart. The e-commerce store connects to the Noroff API to fetch product data, which is then displayed as individual product cards. The application uses React Router for navigation between pages, and employs dynamic routing for the individual product pages.
